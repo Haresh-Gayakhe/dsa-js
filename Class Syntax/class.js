@@ -28,6 +28,11 @@ class Student{
         let total = this.score.reduce((a, b) => a + b)
         return (total/this.score.length).toFixed(2)
     }
+
+    // Class method (Start with static keyword)
+    static enrollStudents(){
+        return `All students are enrolled for this course`
+    }
 }
 
 // Create new instance from that class
@@ -56,3 +61,7 @@ haresh.addScore(98)
 console.log(haresh.getAverageScore())
 
 console.log(haresh)
+
+
+// Access class method
+console.log(Student.enrollStudents())
