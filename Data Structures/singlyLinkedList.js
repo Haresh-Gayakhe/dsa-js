@@ -42,10 +42,18 @@ class SinglyLinkList {
     }
     return current;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = current.next;
+    this.length--;
+    if (this.length == 0) this.tail = null;
+    return current.val;
+  }
 }
 
-
-let list = new SinglyLinkList()
-list.push("Hello")
-list.push("World")
-list.push("!")
+let list = new SinglyLinkList();
+list.push("Hello");
+list.push("World");
+list.push("!");
