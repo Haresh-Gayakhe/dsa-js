@@ -73,7 +73,14 @@ class SinglyLinkList {
       current = current.next
       counter++
     }
-    return current.val
+    return current
+  }
+
+  set(index, val){
+    let current = this.get(index)
+    if(!current) return false
+    current.val = val
+    return true
   }
 }
 
