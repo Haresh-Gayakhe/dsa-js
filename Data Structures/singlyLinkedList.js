@@ -65,35 +65,46 @@ class SinglyLinkList {
     return this;
   }
 
-  get(index){
-    if(index < 0 || index >= this.length) return null
-    let counter = 0
-    let current = this.head
-    while(index != counter){
-      current = current.next
-      counter++
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (index != counter) {
+      current = current.next;
+      counter++;
     }
-    return current
+    return current;
   }
 
-  set(index, val){
-    let current = this.get(index)
-    if(!current) return false
-    current.val = val
-    return true
+  set(index, val) {
+    let current = this.get(index);
+    if (!current) return false;
+    current.val = val;
+    return true;
   }
 
-  insert(index, val){
-    if(index < 0 || index > this.length) return false
-    if(index == 0) return !!this.unshift(val)
-    if(index == this.length) return !!this.push(val)
-    let newNode = new Node(val)
-    let previous = this.get(index - 1)
-    let temp = previous.next
-    previous.next = newNode
-    newNode.next = temp
-    this.length++
-    return true
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index == 0) return !!this.unshift(val);
+    if (index == this.length) return !!this.push(val);
+    let newNode = new Node(val);
+    let previous = this.get(index - 1);
+    let temp = previous.next;
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index == 0) return !!this.shift();
+    if (index == this.length - 1) return !!this.pop();
+    let previous = this.get(index - 1);
+    let current = this.get(index);
+    previous.next = current.next;
+    this.length--;
+    return true;
   }
 }
 
