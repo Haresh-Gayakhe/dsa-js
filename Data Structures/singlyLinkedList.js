@@ -119,6 +119,7 @@ class SinglyLinkList {
       previous = node
       node = next
     }
+    return this
   }
 }
 
